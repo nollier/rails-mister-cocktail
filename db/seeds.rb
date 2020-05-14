@@ -9,26 +9,30 @@ require 'open-uri'
 require 'json'
 
 puts "Destroy data"
-Ingredient.destroy_all
-Cocktail.destroy_all
-Dose.destroy_all
+# Ingredient.destroy_all
+# Cocktail.destroy_all
+# Dose.destroy_all
 
 
 puts "Creating data"
-url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
-drinks = open(url).read
-drinks1 = JSON.parse(drinks)
+url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+url_serialized = open(url).read
+ingredients = JSON.parse(url_serialized)
+array_ingredients = ingredients["drinks"]
+array_ingredients.each do |ingredient|
+  Ingredient.create(name: ingredient["strIngredient1"])
+end
 
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
+# Ingredient.create(name: "lemon")
+# Ingredient.create(name: "ice")
+# Ingredient.create(name: "mint leaves")
 
-Cocktail.create(name: "Cocktail du turfu")
-Cocktail.create(name: "Gin Fizzzzzzzz")
-Cocktail.create(name: "Pina Colada")
+# Cocktail.create(name: "Cocktail du turfu")
+# Cocktail.create(name: "Gin Fizzzzzzzz")
+# Cocktail.create(name: "Pina Colada")
 
-Dose.create(description: "20cl de turfu")
-Dose.create(description: "15cl de ce que tu veux")
-Dose.create(description: "3cl de fascine moi")
+# Dose.create(description: "20cl de turfu")
+# Dose.create(description: "15cl de ce que tu veux")
+# Dose.create(description: "3cl de fascine moi")
 
 puts "Done"

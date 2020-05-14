@@ -1,12 +1,41 @@
-<h1>All cocktails</h1>
-<ul>
-  <% @cocktails.each do |cocktail| %>
-  <li><%=  link_to cocktail.name, cocktail_path(cocktail) %></li>
-  <% end %>
-</ul>
 
-<hr>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <a class="navbar-brand" href="#">
+    <img src="https://images.unsplash.com/photo-1528163077399-91ef32e66754?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=844&q=80" />
+</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<button class="btn btn-white" value='Add my cocktail du turfu'>
-  <%= link_to 'Add my cocktail du turfu', cocktails_new_path%>
-</button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Cocktails</a>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Let's add your cocktail 🔥", new_cocktail_path, class: "nav-link"%>
+
+      </li>
+      <li class="nav-item dropdown">
+        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+  <h1>All cocktails</h1>
+  <ul>
+    <% @cocktails.each do |cocktail| %>
+    <li><%=  link_to cocktail.name, cocktail_path(cocktail) %></li>
+    <% end %>
+  </ul>
+
+  <hr>
+
+  <button class="btn btn-white" value='Add my cocktail du turfu'>
+    <%= link_to 'Add my cocktail du turfu', new_cocktail_path%>
+  </button>
