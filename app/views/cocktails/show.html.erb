@@ -1,20 +1,20 @@
-<div class="container mt-3">
+<div class="container mt-3", style="min-height: 100vh">
   <div class="card-product">
     <img src="https://source.unsplash.com/featured/?<%= @cocktail.name %>" />
       <div class="card-product-infos">
         <h2><%= @cocktail.name.capitalize %>'s details</h2>
-          <%= link_to cocktail_path(@cocktail), method: :delete, data: {confirm: 'Are you sure?'}, class: "ml-3" do %>
-            <i class="fas fa-trash-alt"></i>
+          <%= link_to cocktail_path(@cocktail), method: :delete, data: {confirm: 'Are you sure?'} do %>
+            <i class="fa fa-trash" aria-hidden="true"></i>
           <% end %>
         <p><strong>Composition :</strong><p>
         <% @cocktail.doses.each do |dose| %>
          <%= dose.description %> of <%= dose.ingredient.name %> -
         <% end %>
         <%= link_to new_cocktail_dose_path(@cocktail) do %>
-          <i class="fas fa-plus"></i> Add an ingredient
+          <i class="fa fa-arrow-right" aria-hidden="true"></i> Add an ingredient
         <% end %>
         <%= link_to cocktails_path do %>
-          <i class="fas fa-plus"></i> Back to menu
+          <i class="fa fa-arrow-right" aria-hidden="true"></i> Back to menu
         <% end %>
       </div>
     </div>
