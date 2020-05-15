@@ -6,12 +6,10 @@
           <%= link_to cocktail_path(@cocktail), method: :delete, data: {confirm: 'Are you sure?'}, class: "ml-3" do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
-        <p>Composition :<p>
-        <ul class="cocktail-list-dose">
+        <p><strong>Composition :</strong><p>
         <% @cocktail.doses.each do |dose| %>
-          <li><strong><%= dose.description %> of <%= dose.ingredient.name %></strong></li>
+         <%= dose.description %> of <%= dose.ingredient.name %> -
         <% end %>
-        </ul>
         <%= link_to new_cocktail_dose_path(@cocktail) do %>
           <i class="fas fa-plus"></i> Add an ingredient
         <% end %>

@@ -29,7 +29,7 @@
 </div>
 
 
-<div class="container mt-3">
+<div class="container mt-3", style="min-height: 100vh">
 <!-- Search -->
   <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
     <div class="search-form-control form-group">
@@ -39,6 +39,7 @@
       </button>
     </div>
   </form>
+
 <!-- Display plants cards -->
     <div class="cards">
       <% @cocktails.each do |cocktail| %>
@@ -49,19 +50,7 @@
         <% end %>
       <% end %>
   </div>
+</div>
 
-<!-- Footer -->
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
-  </div>
-</div>
-</div>
+
 
