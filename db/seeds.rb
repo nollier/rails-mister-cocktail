@@ -27,12 +27,10 @@ end
 # Ingredient.create(name: "ice")
 # Ingredient.create(name: "mint leaves")
 
-# Cocktail.create(name: "Cocktail du turfu")
-# Cocktail.create(name: "Gin Fizzzzzzzz")
-# Cocktail.create(name: "Pina Colada")
-
-# Dose.create(description: "20cl de turfu")
-# Dose.create(description: "15cl de ce que tu veux")
-# Dose.create(description: "3cl de fascine moi")
+Cocktail.create(name: "Mojito")
+Cocktail.create(name: "Gin Fiz")
+Cocktail.create(name: "Pina Colada")
+Cocktail.create(name: "Sex on the beach")
+Cocktail.create(name: "Tequila Sunrise")
 
 puts "Done"
