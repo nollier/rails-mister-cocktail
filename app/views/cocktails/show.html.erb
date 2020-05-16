@@ -1,33 +1,31 @@
-<div class="container mt-3", style="min-height: 100vh">
 
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/featured/?dog);">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://source.unsplash.com/featured/?<%= @cocktail.name %>');">
       <h1>Good choice, you're thirsty 🍸</h1>
-    <div class="container">
+  </div>
+
+<div class="container mt-3", style="min-height: 100vh">
+  <div class="card-product">
+    <img src="https://source.unsplash.com/featured/?<%= @cocktail.name %>" />
+      <div class="card-product-infos">
+        <h2><%= @cocktail.name.capitalize %>'s details</h2>
+
+        <p><strong>Composition :</strong><p>
+          <% @cocktail.doses.each do |dose| %>
+        <ul class="list">
+           <%= "• #{dose.description}" %> of <%= dose.ingredient.name %>
+          <% end %>
+        </ul>
+        <%= link_to new_cocktail_dose_path(@cocktail) do %>
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>Add an ingredient |
+        <% end %>
+        <%= link_to cocktails_path do %>
+          <i class="fa fa-arrow-right" aria-hidden="true"></i> Back to menu |
+        <% end %>
+        <%= link_to cocktail_path(@cocktail), method: :delete, data: {confirm: 'Are you sure?'} do %>
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        <% end %>
+      </div>
     </div>
   </div>
-
-
-    <div class="card-product">
-      <img src="https://source.unsplash.com/featured/?<%= @cocktail.name %>" />
-        <div class="card-product-infos">
-          <h2><%= @cocktail.name.capitalize %>'s details</h2>
-            <%= link_to cocktail_path(@cocktail), method: :delete, data: {confirm: 'Are you sure?'} do %>
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            <% end %>
-          <p><strong>Composition :</strong><p>
-          <% @cocktail.doses.each do |dose| %>
-           <%= dose.description %> of <%= dose.ingredient.name %> -
-          <% end %>
-          <%= link_to new_cocktail_dose_path(@cocktail) do %>
-            <i class="fa fa-arrow-right" aria-hidden="true"></i> Add an ingredient
-          <% end %>
-          <%= link_to cocktails_path do %>
-            <i class="fa fa-arrow-right" aria-hidden="true"></i> Back to menu
-          <% end %>
-        </div>
-      </div>
-  </div>
 </div>
-
-
 
